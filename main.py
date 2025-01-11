@@ -16,7 +16,10 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-    car_manager.create_cars()
+    car_manager.create_car()
+    game_is_on = car_manager.detect_collision(player)
+    if player.is_at_finish():
+        player.moves_to_start()
 
 
 screen.exitonclick()
